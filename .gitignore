@@ -1,0 +1,36 @@
+# ---- Java ----
+*.class
+*.log
+*.tmp
+*.swp
+*.out
+
+# ---- Maven ----
+target/
+
+# ---- Test Reports ----
+cucumber-html-reports/
+cucumber.json
+cucumber.xml
+surefire-reports/
+test-output/
+reports/
+
+# ---- IntelliJ IDEA ----
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# ---- OS-specific ----
+.DS_Store
+Thumbs.db
+
+# ---- Environment files ----
+*.env
+.env.local
+
+# ---- Custom ATF logs or tmp ----
+logs/
+tmp/
