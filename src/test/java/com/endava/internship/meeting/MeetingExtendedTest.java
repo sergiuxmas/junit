@@ -1,9 +1,6 @@
 package com.endava.internship.meeting;
 
-import org.junit.jupiter.api.Assumptions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.time.Duration;
 import java.time.ZonedDateTime;
@@ -105,7 +102,7 @@ public class MeetingExtendedTest {
                 zone("2025-09-21T10:30:00+03:00[Europe/Chisinau]")));
     }
 
-    @Test
+    @RepeatedTest(2)
     void junit_timeouts_and_assumptions() {
         assertTimeout(Duration.ofMillis(10), () -> {
             List<ZonedDateTime> times = Recurrence.weekly(zone("2025-09-22T10:00:00+03:00[Europe/Chisinau]"), 3);
