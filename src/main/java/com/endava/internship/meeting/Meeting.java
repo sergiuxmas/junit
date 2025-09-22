@@ -1,5 +1,6 @@
 package com.endava.internship.meeting;
 
+import java.time.DateTimeException;
 import java.time.Duration;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public final class Meeting {
     private void validate() {
         if (!Validators.isValidEmail(organizerEmail)) throw new IllegalArgumentException("Invalid organizer email");
         if (!Validators.isValidTeamsLink(joinUrl)) throw new IllegalArgumentException("Invalid Teams URL");
-        if (!start.isBefore(end)) throw new IllegalArgumentException("start must be before end");
+        if (!start.isBefore(end)) throw new DateTimeException("start must be before end");
     }
 
     public String id() {

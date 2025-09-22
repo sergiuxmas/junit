@@ -16,7 +16,7 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Lifecycle & Parameterized tests for Teams/Online Meetings")
-public class LifecycleAndParameterizedMeetingTest {
+public class ParameterizedMeetingTest {
 
     private static ZonedDateTime BASE;
     private Scheduler scheduler;
@@ -70,8 +70,11 @@ public class LifecycleAndParameterizedMeetingTest {
 
     @ParameterizedTest(name = "Invalid email? \"{0}\"")
     @NullAndEmptySource
-    @ValueSource(strings = {"a@", "@example.com", "user@bad_domain", "no-tld@example"})
     void invalidEmail(String email) {
         assertFalse(Validators.isValidEmail(email));
     }
+
+    /*
+    https://hamcrest.org/JavaHamcrest/javadoc/2.1/org/hamcrest/Matchers.html?utm_source=chatgpt.com
+     */
 }

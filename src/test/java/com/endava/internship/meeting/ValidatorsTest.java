@@ -18,9 +18,9 @@ public class ValidatorsTest {
 
     @Test
     public void isValidEmailNegativeTest() {
-        assertFalse(Validators.isValidEmail("plainaddress"));
-        assertFalse(Validators.isValidEmail("abc@endava"));
-        assertFalse(Validators.isValidEmail("@endava.com"));
+        assertFalse(Validators.isValidEmail("plainaddress"),"Must be invalidate plainaddress");
+        assertFalse(Validators.isValidEmail("abc@endava"), "Must be invalidate abc@endava");
+        assertFalse(Validators.isValidEmail("@endava.com"), "Must be invalidate @endava.com");
     }
 
     @Test
