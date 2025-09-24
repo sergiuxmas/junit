@@ -51,7 +51,11 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
 <!--                <configuration>-->
-<!--                    <release>24</release>-->
+<!--                    <release>17</release>-->
+<!--                </configuration>-->
+<!--                <configuration>-->
+<!--                    <source>17</source>   &lt;!&ndash; Java language level -->
+<!--                    <target>17</target>   &lt;!&ndash; Bytecode level -->
 <!--                </configuration>-->
             </plugin>
             <plugin>
