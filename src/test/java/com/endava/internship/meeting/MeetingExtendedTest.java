@@ -50,22 +50,22 @@ public class MeetingExtendedTest {
     @DisplayName("JUnit Basic Assertions")
     void junit_basicAssertions() {
         // testMeetingCreation
-        assertNotNull(meetings.getFirst());
+        assertNotNull(meetings.get(0));
 
         // attendeesChangeTest
         Meeting meeting = meetings.getFirst();
-        meeting.addAttendee(participants.getFirst());
+        meeting.addAttendee(participants.get(0));
         assertEquals(1, meeting.attendees().size(), "Should be one attendee");
 
-        meeting.addAttendee(participants.getLast());
+        meeting.addAttendee(participants.get(1));
         assertEquals(2, meeting.attendees().size(), "Should be two attendees");
 
         // meetingDurationTest
-        long duration = meetings.getLast().durationMinutes();
+        long duration = meetings.get(2).durationMinutes();
         assertEquals(31L, duration, "Duration should be 90 minutes");
 
         // meetingOvelapTest
-        boolean overlap = meetings.getLast().overlaps(meetings.get(1));
+        boolean overlap = meetings.get(2).overlaps(meetings.get(1));
         assertTrue(overlap, "Overlap should be true");
 
         // meetingStatusTest
@@ -123,13 +123,13 @@ public class MeetingExtendedTest {
 
     @Test
     void hamcrest_coreMatchers_and_custom() {
-        Meeting meeting = meetings.getLast();
+        Meeting meeting = meetings.get(2);
 
         assertThat(meeting.joinUrl(), startsWith("https://teams.microsoft.com/"));
         assertThat(meeting.subject(), allOf(containsString("Retro"), endsWith("spective")));
 
-        meeting.addAttendee(participants.getFirst());
-        meeting.addAttendee(participants.getLast());
+        meeting.addAttendee(participants.get(0));
+        meeting.addAttendee(participants.get(1));
         assertThat(meeting.attendees(), hasSize(2));
 
         List<String> names = meeting.attendees().stream().map(Participant::name).toList();
