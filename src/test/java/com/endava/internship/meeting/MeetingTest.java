@@ -1,5 +1,6 @@
 package com.endava.internship.meeting;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.DateTimeException;
@@ -15,6 +16,7 @@ public class MeetingTest {
     }
 
     @Test
+    @DisplayName("Creates a valid meeting when all required data is provided")
     public void testMeetingCreation() {
         Meeting meeting = new Meeting("Presentation",
                 "Junit",
@@ -27,6 +29,7 @@ public class MeetingTest {
     }
 
     @Test
+    @DisplayName("Throws an exception when the organizer email is invalid")
     public void meetingWithInvalidEmail() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Meeting("Presentation",
@@ -39,6 +42,7 @@ public class MeetingTest {
     }
 
     @Test
+    @DisplayName("Throws an exception when the meeting URL is not a Teams URL")
     public void meetingWithInvalidUrl() {
         assertThrows(IllegalArgumentException.class, () -> {
             new Meeting("Presentation",
@@ -51,6 +55,7 @@ public class MeetingTest {
     }
 
     @Test
+    @DisplayName("Throws an exception when start and end time are the same")
     public void meetingWithInvalidTimeIntersected() {
         assertThrows(DateTimeException.class, () -> {
             new Meeting("Presentation",
@@ -63,6 +68,7 @@ public class MeetingTest {
     }
 
     @Test
+    @DisplayName("Allows attendees to be added and returns a read-only attendee list")
     public void attendeesChangeTest() {
         Meeting meeting = new Meeting("Presentation",
                 "Junit",
@@ -87,6 +93,7 @@ public class MeetingTest {
     }
 
     @Test
+    @DisplayName("Calculates the meeting duration in minutes")
     public void meetingDurationTest() {
         Meeting meeting = new Meeting("Presentation",
                 "Junit",
@@ -99,6 +106,7 @@ public class MeetingTest {
     }
 
     @Test
+    @DisplayName("Detects when two meetings overlap in time")
     public void meetingOvelapTest() {
         Meeting meeting1 = new Meeting("Presentation",
                 "Junit",
@@ -127,6 +135,7 @@ public class MeetingTest {
     }
 
     @Test
+    @DisplayName("Changes meeting status from scheduled to cancelled")
     public void meetingStatusTest() {
         Meeting meeting = new Meeting("Presentation",
                 "Junit",
@@ -143,11 +152,13 @@ public class MeetingTest {
     }
 
     @Test
+    @DisplayName("Removes an attendee by email address")
     public void removeAttendeeByEmailTest() {
         //...
     }
 
     @Test
+    @DisplayName("Checks whether a participant can join the meeting")
     public void canJoinTest() {
         //...
     }
