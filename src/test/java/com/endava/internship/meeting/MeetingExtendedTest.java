@@ -77,6 +77,7 @@ public class MeetingExtendedTest {
     }
 
     @Test
+    @DisplayName("Groups related meeting assertions and verifies exception scenarios")
     void junit_groupingAndExceptions() {
         Meeting m = meetings.get(1);
         m.addAttendee(participants.get(0));
@@ -103,6 +104,7 @@ public class MeetingExtendedTest {
     }
 
     @RepeatedTest(2)
+    @DisplayName("Validates recurrence and scheduler operations with timeouts and assumptions")
     void junit_timeouts_and_assumptions() {
         assertTimeout(Duration.ofMillis(10), () -> {
             List<ZonedDateTime> times = Recurrence.weekly(zone("2025-09-22T10:00:00+03:00[Europe/Chisinau]"), 3);
@@ -122,6 +124,7 @@ public class MeetingExtendedTest {
     }
 
     @Test
+    @DisplayName("Uses Hamcrest matchers to verify meeting values and attendee data")
     void hamcrest_coreMatchers_and_custom() {
         Meeting meeting = meetings.get(2);
 
